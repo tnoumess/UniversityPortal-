@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,7 @@ namespace UnivPortal.Models
     }
     public class Student
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StudentID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -28,6 +30,7 @@ namespace UnivPortal.Models
     }
     public class Instructor
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int InstrutorID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -37,33 +40,48 @@ namespace UnivPortal.Models
     }
     public class Course
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public String CourseID { get; set; }
+        public String Name { get; set; }
+        public String Description { get; set; }
+        public int DepartmentID { get; set; }
+        public int Credit { get; set; }
+
+        public virtual Department Department { get; set; }
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual ICollection<Instructor> Instructors { get; set; }
 
     }
     public class Enrollment
     {
+        public int EnrollmentID { get; set; }
+        public int CourseID { get; set; }
+        public int StudentID { get; set; }
+        public Grade? Grade { get; set; }
 
+        public virtual Course Course { get; set; }
+        public virtual Student Student { get; set; }
     }
     public class Department
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public String DepartmentID { get; set; }
         public String Name { get; set; }
+        public virtual Instructor Administrator { get; set; }
         public virtual ICollection<Major> Majors { get; set; }
 
     }
     public class Major
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public String MajorID { get; set; }
         public String Name { get; set; }
         public virtual ICollection<Course> Listcourses { get; set; }
     }
-    public class Admin
-    {
-
-    }
-
-
+   
     public class User
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public String Email;
         public String Password;
         public Role? Role { get; set; }
