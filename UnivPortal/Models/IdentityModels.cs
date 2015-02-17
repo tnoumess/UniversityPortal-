@@ -28,6 +28,7 @@ namespace UnivPortal.Models
         {
             return new ApplicationDbContext();
         }
+<<<<<<< HEAD
 
         public System.Data.Entity.DbSet<UnivPortal.Models.ApplicationUser> ApplicationUsers { get; set; }
     } 
@@ -45,6 +46,8 @@ namespace UnivPortal.Models
             // Add custom user claims here
             return userIdentity;
         }
+=======
+>>>>>>> parent of a9559fb... Views added
     }
     public class Application1DbContext : IdentityDbContext<ApplicationUser1>
     {
