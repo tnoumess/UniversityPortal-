@@ -16,7 +16,7 @@ namespace UnivPortal.Models
             return userIdentity;
         }
     }
-
+   
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -30,5 +30,34 @@ namespace UnivPortal.Models
         }
 
         public System.Data.Entity.DbSet<UnivPortal.Models.ApplicationUser> ApplicationUsers { get; set; }
+    } 
+    /*
+    /// <summary>
+    //Application 1
+    /// </summary>
+    /*
+    public class ApplicationUser1 : IdentityUser
+    {
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser1> manager)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
+        }
     }
+    public class Application1DbContext : IdentityDbContext<ApplicationUser1>
+    {
+        public Application1DbContext()
+            : base("DefaultConnection", throwIfV1Schema: false)
+        {
+        }
+
+        public static Application1DbContext Create()
+        {
+            return new Application1DbContext();
+        }
+
+        public System.Data.Entity.DbSet<UnivPortal.Models.ApplicationUser1> ApplicationUser1s { get; set; }
+    }*/
 }

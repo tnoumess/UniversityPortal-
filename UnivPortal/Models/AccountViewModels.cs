@@ -35,7 +35,7 @@ namespace UnivPortal.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class LoginViewModel
+    public class Login1ViewModel
     {
         [Required]
         [EmailAddress]

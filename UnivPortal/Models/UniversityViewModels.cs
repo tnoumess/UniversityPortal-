@@ -9,7 +9,7 @@ namespace UnivPortal.Models
     {
         public Student Student { get; set; }
         public Course Course { get; set; }
-        public RegisterUser RegisterUser { get; set; }
+        public RegisterUserViewModel RegisterUser { get; set; }
 
     }
 }
